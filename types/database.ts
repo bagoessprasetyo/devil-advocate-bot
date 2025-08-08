@@ -102,6 +102,47 @@ export interface Database {
           created_at?: string
         }
       }
+      documents: {
+        Row: {
+          id: string
+          user_id: string
+          title: string
+          content: string | null
+          file_url: string | null
+          file_type: string | null
+          file_size: number | null
+          analysis_status: 'pending' | 'processing' | 'completed' | 'error'
+          analysis_result: Json | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          title: string
+          content?: string | null
+          file_url?: string | null
+          file_type?: string | null
+          file_size?: number | null
+          analysis_status?: 'pending' | 'processing' | 'completed' | 'error'
+          analysis_result?: Json | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          title?: string
+          content?: string | null
+          file_url?: string | null
+          file_type?: string | null
+          file_size?: number | null
+          analysis_status?: 'pending' | 'processing' | 'completed' | 'error'
+          analysis_result?: Json | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
     }
   }
 }
@@ -112,3 +153,4 @@ export type MessageRole = 'user' | 'assistant' | 'system'
 export type Profile = Database['public']['Tables']['profiles']['Row']
 export type Conversation = Database['public']['Tables']['conversations']['Row']
 export type Message = Database['public']['Tables']['messages']['Row']
+export type Document = Database['public']['Tables']['documents']['Row']

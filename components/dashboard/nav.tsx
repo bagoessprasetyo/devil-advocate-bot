@@ -21,7 +21,8 @@ import {
   LogOut, 
   User as UserIcon,
   Zap,
-  PanelLeft
+  PanelLeft,
+  FileText
 } from 'lucide-react'
 import type { User } from '@supabase/supabase-js'
 import { cn } from '@/lib/utils'
@@ -104,6 +105,12 @@ export function DashboardNav({ user, leftContent, onToggleSidebar, sidebarCollap
                 <Link href="/chat">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   New Chat
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/upload">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Document Analysis
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
